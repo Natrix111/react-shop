@@ -1,13 +1,316 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Open+Sans:ital,wght@0,300;1,500&display=swap');
+
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+  background: #fff;
+  color: #222;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
 }
+
+.wrapper{
+  width: 1280px;
+  margin: 50px auto;
+}
+
+header{
+  position: relative;
+}
+
+.logo{
+  font-weight: 900;
+  font-size: 20px;
+  text-decoration: none;
+  color: #000000;
+}
+
+.nav{
+  list-style: none;
+  float: right;
+  display: flex;
+}
+
+.nav__item{
+  display: inline;
+  margin-left: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 400ms ease;
+}
+
+.nav__string{
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav__log{
+margin-left: 890px;
+text-decoration: none;
+color: #000000;
+}
+
+.nav__log:hover{
+color: #fa04e5;
+}
+
+.nav__reg{
+  text-decoration: none;
+  color: #000000;
+}
+
+.nav__reg:hover{
+  color: #fa04e5;
+  }
+
+.shop__cart-btn{
+  float: right;
+  cursor: pointer;
+  transition: color, transform 500ms ease;
+  margin-right: 25px;
+}
+
+.shop__cart-btn:hover, .shop__cart-btn.active{
+  color: #fa04e5;
+  transform: scale(1.4);
+}
+
+.shop-cart{
+  position: absolute;
+  top: 30px;
+  right: 0;
+  width: 450px;
+  background: #fafafa;
+  -webkit-box-shadow: 5px 5px 15px 5px #595959; 
+  box-shadow: 5px 5px 15px 5px #595959;
+  z-index: 100;
+  padding: 20px;
+  padding-bottom: 0;
+}
+
+.empty__text{
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.shop-cart .item{
+  width: 100%;
+  float: left;
+  margin-bottom: 20px;
+}
+
+.shop-cart .item img{
+  width: 70px;
+  float: left;
+  margin-right: 20px;
+}
+
+.shop-cart .item h2{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.shop-cart .item b{
+  color: gray;
+  font-weight: 600;
+  margin-left: 0;
+}
+
+.nav__item:first-child{
+  margin-left: 0px;
+}
+
+.nav__item:hover{
+  opacity: 0.5;
+}
+
+.presentation{
+  margin-top: 45px;
+  margin-bottom: 70px;
+  background: url('./img/sport.jpg') no-repeat;
+  width: 100%;
+  height: 450px;
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode: multiply;
+  background-color: #bcbcbc;
+  position: relative;
+  text-align: center;
+}
+
+.presentation::after{
+content: "Sneaker Store - shop of original and limited sneakers";
+position: absolute;
+top: 100px;
+left: 50px;
+width: 500px;
+font-weight: bold;
+font-size: 40px;
+color: #fff;
+text-align: left;
+}
+
+
+main{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+main .item{
+width: 30%;
+margin-bottom: 50px;
+background: #f5f5f5;
+overflow: hidden;
+padding-bottom: 20px;
+position: relative;
+}
+
+main .item img, .full-item img{
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  transition: transform 500ms ease;
+  cursor: pointer;
+}
+
+main .item img:hover, .full-item img:hover{
+  transform: scale(1.05);
+}
+
+main .item__desc,
+main .item__title, 
+main .item__price,
+.full-item .item__desc,
+.full-item .item__title,
+.full-item .item__price{
+  margin: 10px 20px;
+  color: #333;
+}
+
+main .item__price,
+.full-item .item__price{
+color: #7bdf39;
+}
+
+.delete-icon{
+  color: #595959;
+  float: right;
+  position: relative;
+  cursor: pointer;
+  transition: color, transform 500ms ease;
+}
+
+.delete-icon:hover{
+  color: #ff0202;
+  transform: scale(1.5);
+}
+
+.sum{
+  margin-bottom: 20px;
+  width: 100%;
+  float: left;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+main .item__btn, 
+.full-item .item__btn{
+position: absolute;
+right: 20px;
+bottom: 20px;
+background: #f5bdf5;
+width: 35px;
+height: 35px;
+text-align: center;
+line-height: 35px;
+color: #ffffff;
+border-radius: 50%;
+cursor: pointer;
+font-weight: 600;
+transition: transform 500ms ease;
+}
+
+main .item__btn:hover, 
+.full-item .item__btn:hover{
+  transform: scale(1.5) translateY(-5px);
+}
+
+.full-item{
+  position: fixed;
+  top: 0;left: 0;right: 0;bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  overflow: auto;
+}
+
+.full-item > div {
+  width: 600px;
+  position: relative;
+  margin: 10% auto;
+  padding: 40px 30px;
+  background: #ffffff;
+  border-radius: 9px;
+}
+
+.form{
+  display: flex;
+  justify-content: end;
+}
+
+.form__item{
+margin-left: 15px;
+}
+
+
+footer{
+  text-align: center;
+  margin-top: 100px;
+  color: #3a3939;
+}
+
+label {
+  text-align: left;
+  padding: 0.25rem 0;
+}
+
+input {
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+}
+
+button {
+  border: none;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #7439db;
+  margin-bottom: 20px;
+}
+
+.titel__reg, .titel__log{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.link-btn {
+  background: none;
+  color: white;
+  text-decoration: underline;
+}
+
+
+.auth-form-container, .login-form, .register-form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 30px;
+}
+
